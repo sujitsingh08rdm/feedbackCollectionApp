@@ -30,7 +30,7 @@ We have creating a feedback collection app form, where user can put their accoun
 
 1. we will refactor our existing code, so that it becomes more likely spearation of concerns
 2. services, and routes will be new folder, where we will put the new files
-3. in services we will out our passportfunction and routes to routes folder
+3. in services we will put our passportfunction and routes to routes folder
 4. we will use cookies for authentication ( so that user information is stored in browser , so that user can also be logged in even after sometime in future)
 5. created a cluster in mongoDB atlas
 6. install mongoose, we will connect mongoose with mongoDB
@@ -43,3 +43,13 @@ We have creating a feedback collection app form, where user can put their accoun
 13. we use deserializeUser
 14. we use a route to test aur auth process, whenever user sucessfully logged in
 15. we create a route for logggint the user out
+
+## // Adding Prod keys
+
+---
+
+1. Creaetd a new DB server for storing keys // key=mongodb+srv://sujitKey:12345@cluster0.pvzim.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+2. created a new Oauth for prod keys
+3. will create a new file for prod and dev env
+4. we put keys in prod, apply a condition in files
+5.

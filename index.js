@@ -33,4 +33,5 @@ require("./routes/authRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 //creating a express server on port 5000, tells node to listen to port 5000
+
 app.listen(PORT);
