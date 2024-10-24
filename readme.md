@@ -51,5 +51,5 @@ We have creating a feedback collection app form, where user can put their accoun
 1. Creaetd a new DB server for storing keys // key=mongodb+srv://sujitKey:12345@cluster0.pvzim.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 2. created a new Oauth for prod keys
 3. will create a new file for prod and dev env
-4. we put keys in prod, apply a condition in files
+4. we put keys in prod, apply a condition in keys.js file
 5.
