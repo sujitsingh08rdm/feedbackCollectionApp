@@ -8,7 +8,7 @@ const passport = require("passport");
 //we are using require since it get executed simply on startup, and thats what we actually wanted
 require("./models/user");
 //we are using require since it get executed simply on startup, and thats what we actually wanted
-require("./services.js/passport");
+require("./services/passport");
 
 //connecting monggose with mongoDB
 mongoose.connect(keys.mongoURI);
@@ -20,7 +20,7 @@ const app = express();
 app.use(
   cookieSession({
     // Cookie Options
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    maxAge: 30 * 24 * 60 * 60 * 1000, // 24 hours
     keys: [keys.cookieKey],
   })
 );
@@ -29,7 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //we are using only require since we are returning a function from authRoute that will be siply called using (app)
-require("./routes/authRoutes")(app);
+require("./routes/authRoutes.js")(app);
 
 const PORT = process.env.PORT || 5000;
 //creating a express server on port 5000, tells node to listen to port 5000

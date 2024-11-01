@@ -8,7 +8,7 @@ const User = mongoose.model("users");
 
 //serialize: Decides what part of the user object to store in the session. In this case, only the database user ID (user.id) is stored,
 passport.serializeUser((user, done) => {
-  done(null, user.id); // here user.id is not profile id, its it the user id that is store in DB, not the google user iD
+  done(null, user); // here user.id is not profile id, its it the user id that is store in DB, not the google user iD
 });
 
 passport.deserializeUser((id, done) => {
