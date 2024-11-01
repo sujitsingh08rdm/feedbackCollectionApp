@@ -9,12 +9,16 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \" npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^9.0.1",
     "cookie-session": "^2.1.0",
+    "create-react-app": "^5.0.1",
     "express": "^4.21.1",
     "mongoose": "^8.7.1",
     "nodemon": "^3.1.7",

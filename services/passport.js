@@ -26,7 +26,7 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback", // url that gets callbacked once user authenticated
-      proxy: true,
+      // proxy: true,
     },
 
     //these are callback fn that are executed when auth was sucessfull
