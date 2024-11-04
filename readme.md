@@ -52,4 +52,11 @@ We have creating a feedback collection app form, where user can put their accoun
 2. created a new Oauth for prod keys
 3. will create a new file for prod and dev env
 4. we put keys in prod, apply a condition in keys.js file
-5.
+
+## // Added react frontend
+
+---
+
+1. Create react app
+2. adding proxy
+3. refactor passport file with async syntax

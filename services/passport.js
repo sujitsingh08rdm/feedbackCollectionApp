@@ -14,7 +14,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   //The deserializeUser function is used to retrieve the full user object from the database using the id stored in the session.
   User.findById(id).then((user) => {
-    done(null, user);
+    done(null, user.id);
   });
 });
 
@@ -30,18 +30,17 @@ passport.use(
     },
 
     //these are callback fn that are executed when auth was sucessfull
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       // Check if user already exists in the database
-      User.findOne({ googleId: profile.id }).then((existingUser) => {
-        if (existingUser) {
-          // if we aleady have record with profile ID
-          done(null, "existing");
-        } else {
-          new User({ googleId: profile.id })
-            .save()
-            .then((user) => done(null, user)); // we to save method to save this model instance to DB
-        }
-      });
+      const existingUser = await User.findOne({ googleId: profile.id });
+
+      if (existingUser) {
+        // if we aleady have record with profile ID
+        return done(null, existingUser);
+      } else {
+        const user = await new User({ googleId: profile.id }).save();
+        done(null, user); // we to save method to save this model instance to DB
+      }
     }
   )
 );
