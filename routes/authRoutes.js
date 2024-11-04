@@ -12,12 +12,18 @@ module.exports = (app) => {
   );
 
   //After the user logs in and grants permission, Google redirects them to this URL (/auth/google/callback).
-  app.get("/auth/google/callback", passport.authenticate("google")); // the callback function handles response from google, retreives the user profile information and complets the authentication process
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  ); // the callback function handles response from google, retreives the user profile information and complets the authentication process
 
   // route to logout
   app.get("/api/logout", (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect("/");
   });
 
   // we created this route for user info, req.user is a property that Passport.js automatically attaches to the req object after successful authentication. It contains the authenticated user's information, which has been retrieved during the session.
